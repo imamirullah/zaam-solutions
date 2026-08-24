@@ -97,7 +97,7 @@ export default function HomeClient() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-center text-slate-900 dark:text-white relative z-20 tracking-tight leading-tight"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-center text-white sm:text-slate-900 dark:text-white relative z-20 tracking-tight leading-tight"
         >
           We Build It. We Market It.<br />
           <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent filter drop-shadow-[0_0_20px_rgba(6,182,212,0.25)]">
@@ -105,8 +105,8 @@ export default function HomeClient() {
           </span>
         </motion.h1>
 
-        {/* Aceternity Sparkles Divider with Glowing Lines (Directly Masked) */}
-        <div className="w-[90vw] sm:w-[40rem] md:w-[50rem] h-40 relative z-10 mt-[20px] [mask-image:radial-gradient(350px_200px_at_top,white_10%,transparent_100%)]">
+        {/* Aceternity Sparkles Divider with Glowing Lines (Directly Masked, Hidden on Phone views) */}
+        <div className="hidden sm:block w-[90vw] sm:w-[40rem] md:w-[50rem] h-40 relative z-10 mt-[20px] [mask-image:radial-gradient(350px_200px_at_top,white_10%,transparent_100%)]">
           {/* Gradients */}
           <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
           <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
@@ -132,7 +132,7 @@ export default function HomeClient() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-600 dark:text-slate-350 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-medium"
+            className="text-slate-100 sm:text-slate-600 dark:text-slate-350 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-medium"
           >
             A full-stack software development and digital marketing agency helping startups and businesses design powerful digital products and get them in front of the right audience.
           </motion.p>

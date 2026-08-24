@@ -4,13 +4,12 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Menu, X, PhoneCall, Sun, Moon } from 'lucide-react';
+import { Send, Menu, X, PhoneCall } from 'lucide-react';
 import Button from './ui/Button';
 
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,24 +17,8 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
 
-    // Sync theme on mount
-    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    setTheme(currentTheme);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    if (nextTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-    setTheme(nextTheme);
-  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -96,37 +79,15 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Desktop CTA Button & Theme Toggle */}
+        {/* Desktop CTA Button */}
         <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={toggleTheme}
-            className="w-10 h-10 rounded-xl bg-slate-100/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? (
-              <Sun className="w-4.5 h-4.5 text-yellow-500 animate-pulse-slow" />
-            ) : (
-              <Moon className="w-4.5 h-4.5 text-indigo-600" />
-            )}
-          </button>
           <Button href="/contact" variant="primary" size="sm" icon={<Send className="w-3.5 h-3.5" />}>
             Start a Project
           </Button>
         </div>
 
-        {/* Mobile Quick Action Link & Theme Toggle */}
+        {/* Mobile Quick Action Link */}
         <div className="block md:hidden flex items-center gap-3">
-          <button
-            onClick={toggleTheme}
-            className="w-10 h-10 rounded-xl bg-slate-100/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? (
-              <Sun className="w-4.5 h-4.5 text-yellow-500" />
-            ) : (
-              <Moon className="w-4.5 h-4.5 text-indigo-600" />
-            )}
-          </button>
           <Link
             href="/contact"
             className="w-10 h-10 rounded-xl bg-slate-100/70 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all"

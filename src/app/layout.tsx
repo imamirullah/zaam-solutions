@@ -44,27 +44,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const theme = localStorage.getItem('theme') || 'dark';
-                  if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {}
-              })()
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" className="dark h-full scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased min-h-screen bg-slate-50 dark:bg-[#030308] text-slate-900 dark:text-slate-100 flex flex-col transition-colors duration-300`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased min-h-screen bg-[#030308] text-slate-100 flex flex-col`}
       >
         {/* Sticky Header Nav */}
         <Header />

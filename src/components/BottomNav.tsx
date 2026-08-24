@@ -18,7 +18,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/90 dark:bg-[#030308]/90 backdrop-blur-xl border-t border-slate-200/60 dark:border-white/5 px-4 pt-2.5 pb-[calc(10px+env(safe-area-inset-bottom))]">
+    <nav className="fixed bottom-6 left-4 right-4 mx-auto max-w-md z-50 md:hidden bg-white/40 dark:bg-white/[0.03] backdrop-blur-xl border border-slate-200/50 dark:border-white/10 shadow-2xl rounded-2xl px-4 py-2.5">
       <div className="flex items-center justify-around max-w-lg mx-auto">
         {tabs.map((tab) => {
           const isActive = pathname === tab.path;
